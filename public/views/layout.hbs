@@ -15,7 +15,24 @@
 </head>
 
 <body>
+
+  {{#if user}}
+  <header>
+    <div class="container">
+      <a href="/account/newCategory">Новые категории</a>
+      <a href="/account/newTransaction">Новая транзакция</a>
+      <a href="/account/allTransaction">Все траты</a>
+      <a href="/account/logout">Выйти из аккаунта</a>
+    </div>
+    {{else}}
+    <div class="container">
+      <a href="/registration">Регистрация</a>
+      <a href="/login">Войти</a>
+    </div>
+    {{/if}}
+  </header>
   {{{body}}}
+  {{!-- {{user}} Почему сессия не сбрасывается? --}}
 </body>
 
 </html>

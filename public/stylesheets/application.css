@@ -1,5 +1,10 @@
+body {
+  background-image: url("giorgio-trovato-V_aWDjx2g20-unsplash.jpg");
+  background-size: 100%;
+}
+
 a {
-  color: #34495e;
+  color: black;
   line-height: 1.2;
   position: relative;
   padding: 0 14px;
@@ -41,6 +46,7 @@ form {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  font-size: 17px;
 }
 
 h1,
@@ -61,6 +67,26 @@ p {
   font-size: 23px;
 }
 
+.allSpending {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap;
+  justify-content: space-around; */
+}
+.allSpending h1 {
+  margin: auto;
+  margin-top: 2.5%;
+}
+
+.spending {
+  width: 50%;
+  background-color: rgb(230, 238, 237);
+  margin: auto;
+}
+.spending p {
+  margin: 4% 4% 4% 10%;
+}
+
 input {
   width: 300px;
   font-size: 13px;
@@ -69,7 +95,6 @@ input {
   background: #f6f6f6;
   border-radius: 8px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   margin: auto;
 }
