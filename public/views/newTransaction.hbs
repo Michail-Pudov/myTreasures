@@ -1,0 +1,21 @@
+<form action="/account/newSpending" method="POST">
+  <h2>Новая транзакция</h2>
+  <br>
+  <select name="from" id="selectFrom">
+    {{#each user.scoreArray}}
+    <option value='{{this.score}}'>{{this.score}}</option>
+    {{/each}}
+  </select>
+  <br>
+  <select name="to" id="selectTo">
+    {{#each user.categoriesArray}}
+    <option value='{{this.categories}}'>{{this.categories}}</option>
+    {{/each}}
+  </select>
+  <br>
+  <input type="text" placeholder="Сумма" name="amount">
+  <br>
+  <input type="text" placeholder="Комментарий" name="comment">
+  <br>
+  <input type="submit" value="Отправить">
+</form>

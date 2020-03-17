@@ -1,0 +1,10 @@
+<h1>Все транзакции</h1>
+{{#each user.spendingArray}}
+<div class="spending">
+  <p>Откуда: {{this.from}}</p>
+  <p>Куда: {{this.to}}</p>
+  <p>Сумма: {{this.amount}}</p>
+  <p>Комментарий: {{this.comment}}</p>
+</div>
+<br>
+{{/each}}
