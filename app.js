@@ -72,10 +72,10 @@ app.use(function(req, res, next) {
 app.use((req, res, next) => {
   const { user } = req.session;
   if (user) {
-    app.locals.user = user;
+    res.locals.user = user;
     next();
   } else {
-    delete app.locals.user;
+    delete res.locals.user;
     next();
   }
 });

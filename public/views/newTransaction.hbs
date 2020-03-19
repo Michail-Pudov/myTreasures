@@ -1,4 +1,4 @@
-<form action="/account/newSpending" method="POST">
+<form action="/account/newSpending" method="POST" id="transaction">
   <h2>Новая транзакция</h2>
   <br>
   <select name="from" id="selectFrom">
@@ -13,12 +13,33 @@
     {{/each}}
 
   </select>
+  {{#if shoppingList}}
   <br>
   <input type="date" name="date" placeholder="Дата" id="date" required>
   <br>
-  <input type="text" placeholder="Сумма" name="amount" required>
+  <input type="text" placeholder="Сумма" name="amount" value="{{totalSum}}" required>
   <br>
-  <input type="text" placeholder="Комментарий" name="comment" required>
+  <input type="text" placeholder="Комментарий" name="comment" value="{{shoppingList}}" required>
+  <br>
+  <input type="submit" value="Отправить">
+</form>
+{{else}}
+<br>
+<input type="date" name="date" placeholder="Дата" id="date" required>
+<br>
+<input type="text" placeholder="Сумма" name="amount" required>
+<br>
+<input type="text" placeholder="Комментарий" name="comment" required>
+<br>
+<input type="submit" value="Отправить">
+</form>
+{{/if}}
+
+
+
+<br><br>
+<form action="/account/readQR" method="POST" id="QR">
+  <input type="text" name="qrString">
   <br>
   <input type="submit" value="Отправить">
 </form>

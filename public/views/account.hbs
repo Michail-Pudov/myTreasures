@@ -1,11 +1,11 @@
 <h2>{{user.login}}</h2>
 <h2>{{user.email}}</h2>
-<h2>Мои финансы: {{user.allAmount}}</h2>
-<h2>Мои расходы: {{user.allSpending}}</h2>
+<h2>Мои финансы 😎: {{user.allAmount}}</h2>
+<h2>Мои расходы 🥺: {{user.allSpending}}</h2>
 
 
 {{#each user.scoreArray}}
-<a href="/account/score/{{this.index}}">{{this.score}}:</a>
+<a href="/account/score/{{this.index}}">{{this.score}} 👛:</a>
 <span>{{this.amount}}</span>
 {{/each}}
 <br>
@@ -13,6 +13,6 @@
 <br>
 <br>
 {{#each user.categoriesArray}}
-<a href="/account/score/{{this.index}}">{{this.categories}}:</a>
+<a href="/account/score/{{this.index}}">{{this.categories}} 🛒:</a>
 <span>{{this.amount}}</span>
 {{/each}}

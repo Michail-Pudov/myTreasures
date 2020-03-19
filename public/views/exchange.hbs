@@ -1,0 +1,22 @@
+<div class="exchangeCurrencies">
+  <h1>Это на поплакать 😭</h1>
+  <form action="/account/exchange" method="POST" id="exchange">
+    <select name="from">
+      {{#each currencies}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    <br>
+    <select name="to">
+      {{#each currencies}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    <br>
+    <input type="text" name="sum" placeholder="Сумма">
+    <br>
+    <input type="submit" value="Тыкай" id="submitExchange">
+  </form>
+  <div class="exchange">
+  </div>
+</div>

@@ -98,3 +98,33 @@ input {
   align-items: center;
   margin: auto;
 }
+
+.exchangeCurrencies {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.exchangeCurrencies h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.transaction {
+  position: relative;
+
+  z-index: 50;
+}
+
+.position {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 200px;
+  z-index: -10;
+  font-size: 120px;
+  opacity: 0.5;
+  color: rgb(194, 194, 240);
+}
