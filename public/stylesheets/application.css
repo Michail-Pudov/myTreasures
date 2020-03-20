@@ -9,8 +9,7 @@ a {
   position: relative;
   padding: 0 14px;
   text-transform: uppercase;
-  border: 0px;
-  border-radius: 0px;
+  margin: 2px;
 }
 
 a::after {
@@ -70,8 +69,6 @@ p {
 .allSpending {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap;
-  justify-content: space-around; */
 }
 .allSpending h1 {
   margin: auto;
@@ -82,6 +79,7 @@ p {
   width: 50%;
   background-color: rgb(230, 238, 237);
   margin: auto;
+  border-radius: 80px;
 }
 .spending p {
   margin: 4% 4% 4% 10%;
@@ -89,6 +87,7 @@ p {
 
 input {
   width: 300px;
+  height: 27px;
   font-size: 13px;
   padding: 6px 0 4px 10px;
   border: 1px solid #cecece;
@@ -97,6 +96,8 @@ input {
   display: flex;
   align-items: center;
   margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .exchangeCurrencies {
@@ -114,7 +115,6 @@ input {
 
 .transaction {
   position: relative;
-
   z-index: 50;
 }
 
@@ -127,4 +127,53 @@ input {
   font-size: 120px;
   opacity: 0.5;
   color: rgb(194, 194, 240);
+}
+
+#indexH1 {
+  font-size: 85px;
+}
+
+.homeLayout {
+  margin-left: 8%;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 4%;
+}
+
+#transaction {
+  margin-top: 1.6%;
+}
+
+.infoUser {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5%;
+  font-size: 20px;
+}
+
+.infoCategory {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 5%;
+  font-size: 20px;
+}
+
+#accountHomeDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.assesment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

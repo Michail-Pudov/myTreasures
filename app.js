@@ -13,8 +13,8 @@ const indexRouter = require("./routes/index");
 const accountRouter = require("./routes/account");
 
 mongoose.pluralize(null);
-
-mongoose.connect("mongodb://localhost/myTreasures", {
+// "mongodb://localhost/myTreasures"
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

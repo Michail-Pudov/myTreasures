@@ -134,7 +134,10 @@ router.post("/readQR", async function(req, res) {
   let str = req.body.qrString;
   const newString = str
     .replace("i=", "fd=")
-    .replace(/t=(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})/, "$3.$2.$1+$4%3A$5&qr=0");
+    .replace(
+      /t=(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})?(\d{2})/,
+      "$3.$2.$1+$4%3A$5&qr=0"
+    );
   let response = await fetch("https://proverkacheka.com/check/get", {
     credentials: "omit",
     headers: {
@@ -150,7 +153,7 @@ router.post("/readQR", async function(req, res) {
     mode: "cors"
   });
   let result = await response.json();
-  console.log(result);
+  console.log(newString);
 
   let shoppingList = result.data.json.items.reduce(
     (acc, value) => acc + value.name + " ",
@@ -161,6 +164,52 @@ router.post("/readQR", async function(req, res) {
     shoppingList: shoppingList,
     totalSum: totalSum
   });
+});
+
+router.get("/score/:id", async function(req, res) {
+  const id = req.params.id;
+  let user = await User.findOne({ email: req.session.user.email });
+  let score = user.scoreArray.find(elem => elem.index === +id);
+  res.render("score.hbs", { score: score });
+});
+
+router.post("/score/:id", async function(req, res) {
+  const id = req.params.id;
+  const nameScore = req.body.nameScore;
+  const amount = req.body.amount;
+  const user = await User.findOne({ email: req.session.user.email });
+  const score = user.scoreArray.find(elem => elem.index === +id);
+  user.allAmount -= +score.amount;
+  user.allAmount += +amount;
+  score.amount = +amount;
+  score.score = nameScore;
+  user.markModified("scoreArray");
+  await user.save();
+  req.session.user = user;
+  req.session.save(() => res.redirect("/account"));
+});
+
+router.get("/categories/:id", async function(req, res) {
+  const id = req.params.id;
+  let user = await User.findOne({ email: req.session.user.email });
+  let categories = user.categoriesArray.find(elem => elem.index === +id);
+  res.render("categories.hbs", { categories: categories });
+});
+
+router.post("/categories/:id", async function(req, res) {
+  const id = req.params.id;
+  const nameCategories = req.body.nameCategories;
+  const amount = req.body.amount;
+  const user = await User.findOne({ email: req.session.user.email });
+  const categories = user.categoriesArray.find(elem => elem.index === +id);
+  user.allSpending -= +categories.amount;
+  user.allSpending += +amount;
+  categories.amount = +amount;
+  categories.categories = nameCategories;
+  user.markModified("categoriesArray");
+  await user.save();
+  req.session.user = user;
+  req.session.save(() => res.redirect("/account"));
 });
 
 router.get("/logout", async function(req, res, next) {

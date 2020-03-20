@@ -1,18 +1,31 @@
-<h2>{{user.login}}</h2>
-<h2>{{user.email}}</h2>
-<h2>Мои финансы 😎: {{user.allAmount}}</h2>
-<h2>Мои расходы 🥺: {{user.allSpending}}</h2>
+<div id="accountHomeDiv">
+  <div class="infoUser">
+    <h2>{{user.login}}</h2>
+    <h2>{{user.email}}</h2>
+    <h2>Мои финансы 😎: {{user.allAmount}}</h2>
+    <h2>Мои расходы 🥺: {{user.allSpending}}</h2>
+  </div>
 
+  <div class="infoCategory">
+    <div class="assesment">
+      <h2>Кошельки:</h2>
+      {{#each user.scoreArray}}
+      <a href="/account/score/{{this.index}}">{{this.score}} 👛:</a>
+      <span>{{this.amount}}</span>
+      <br>
 
-{{#each user.scoreArray}}
-<a href="/account/score/{{this.index}}">{{this.score}} 👛:</a>
-<span>{{this.amount}}</span>
-{{/each}}
-<br>
-<br>
-<br>
-<br>
-{{#each user.categoriesArray}}
-<a href="/account/score/{{this.index}}">{{this.categories}} 🛒:</a>
-<span>{{this.amount}}</span>
-{{/each}}
+      {{/each}}
+    </div>
+    <br>
+    <br>
+    <div class="assesment">
+      <h2>Расходы:</h2>
+      {{#each user.categoriesArray}}
+      <a href="/account/categories/{{this.index}}">{{this.categories}} 🛒:</a>
+      <span>{{this.amount}}</span>
+      <br>
+
+      {{/each}}
+    </div>
+  </div>
+</div>

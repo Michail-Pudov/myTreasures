@@ -51,7 +51,7 @@ router.post("/login", async function(req, res) {
     req.session.user = user;
     res.redirect("/account");
   } else {
-    res.redirect("/login");
+    res.render("login.hbs", { message: true });
   }
 });
 

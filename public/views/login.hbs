@@ -8,4 +8,7 @@
   <input type="text" placeholder="Password" name="password">
   <br>
   <input type="submit" value="Войти">
+  {{#if message}}
+  <p>Неверные данные</p>
+  {{/if}}
 </form>

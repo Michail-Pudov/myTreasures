@@ -8,7 +8,10 @@
   <input type="text" placeholder="Password" name="password" required>
   <br>
   <input type="submit" value="Зарегистрироваться">
+  {{#if loginMessage}}
+  <p>{{loginMessage}}</p>
+  {{/if}}
+  {{#if emailMessage}}
+  <p>{{emailMessage}}</p>
+  {{/if}}
 </form>
-
-<p>{{loginMessage}}</p>
-<p>{{emailMessage}}</p>
