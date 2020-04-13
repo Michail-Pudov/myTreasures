@@ -37,8 +37,7 @@ npm start
 * Getting the current exchange rate of more than 50 currencies
 * View all your transactions
 
-# Teams
-
+# Team
 [Michail](https://github.com/Michail-Pudov)
 
 
